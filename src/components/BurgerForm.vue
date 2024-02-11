@@ -4,8 +4,8 @@
         <div>
             <form id="burger-form" @submit.prevent="createBurger">
                 <div class="input-container">
-                    <label for="nomeCliente">Nome do cliente</label>
-                    <input type="text" id="nomeCliente" name="nomeCliente" v-model="nomeCliente" placeholder="Digite o seu nome"/>
+                    <label for="nome">Nome do cliente</label>
+                    <input type="text" id="nome" name="nome" v-model="nome" placeholder="Digite o seu nome"/>
                 </div>
 
                 <div class="input-container">
@@ -55,7 +55,7 @@ export default {
             paes: null,
             carnes: null,
             opcionaisdata: null,
-            nomeCliente: null,
+            nome: null,
             pao: null,
             carne: null,
             opcionais: [],
@@ -73,8 +73,7 @@ export default {
               this.carnes = data.carnes;
               this.opcionaisdata = data.opcionais;
 
-          }
-      },
+          },
           async createBurger(e) {
             e.preventDefault();  //Para que o evento pare quando clicar em subnmit
            
@@ -88,11 +87,15 @@ export default {
 
             console.log(data);
           },
+        },
           
           mounted() {
               this.getIngredientes();
           }
       }
+    
+
+      
 </script>
 
 <style scoped>
