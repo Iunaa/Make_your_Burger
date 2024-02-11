@@ -107,6 +107,17 @@
         "Pepino"
       ],
       "status": "Solicitado"
+    },
+    {
+      "id": "4fdc",
+      "nome": "Paulo",
+      "carne": "Picanha",
+      "pao": "Parmesão e Orégano",
+      "opcionais": [
+        "Tomate",
+        "Salame"
+      ],
+      "status": "Solicitado"
     }
   ]
 }
