@@ -26,10 +26,11 @@
             </div>
 
             <div>
-                <select name="status" class="status">
+                <select name="status" class="status" @change="updateBurger($event, burger.id)">
                     <option value="">Selecione</option>
+                    <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="burger.status === s.tipo">{{ s.tipo }}</option>
                 </select>
-                <button class="delete-btn">Cancelar</button>
+                <button class="delete-btn" @click="deleteBurger(burger.id)">Cancelar</button>
 
 
             </div>
@@ -65,9 +66,46 @@ export default {
 
             this.burgers = data;
 
-            console.log(this.burgers)
-
             //Resgatar os status
+            this.getStatus();
+        },
+        async getStatus(){
+
+            const req = await fetch("http://localhost:3000/status");
+
+            const data = await req.json();
+
+            this.status = data;
+
+           
+
+        },
+        async deleteBurger(id) {
+           const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+            method: "DELETE"
+           });
+
+           const res = await req.json();
+
+           //msg
+
+           this.getPedidos();
+        },
+        async updateBurger(event,id) {
+
+            const option = event.target.value;  //para saber qual status o usuário está colocando no momento
+
+            const dataJson = JSON.stringify({ status: option});   //colocando em string o status para atualizar no banco
+
+            const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+                method: "PATCH",
+                headers: {"Content-type" : "application/json"},
+                body: dataJson
+            });
+
+            const res = await req.json();
+            console.log(res);
+
         }
     },
     mounted() {
@@ -83,11 +121,15 @@ export default {
     margin: 0 auto;
  }
 
+
+
  #burger-table-heading,
  #burger-table-rows,
  .burger-table-row {
     display: flex;
     flex-wrap: wrap;
+
+    
  }
 
  #burger-table-heading {
