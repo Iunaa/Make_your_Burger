@@ -121,15 +121,11 @@ export default {
     margin: 0 auto;
  }
 
-
-
  #burger-table-heading,
  #burger-table-rows,
  .burger-table-row {
     display: flex;
     flex-wrap: wrap;
-
-    
  }
 
  #burger-table-heading {

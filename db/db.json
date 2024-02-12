@@ -79,36 +79,29 @@
   ],
   "burgers": [
     {
-      "id": "b4e7",
-      "nome": "yuh",
-      "carne": "Veggie burger",
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Bacon",
-        "Cheddar"
-      ],
-      "status": "Em produção"
-    },
-    {
-      "id": "5f8b",
       "nome": "Yuh",
       "carne": "Maminha",
       "pao": "Italiano Branco",
       "opcionais": [
         "Cheddar",
+        "Salame",
         "Pepino"
       ],
-      "status": "Solicitado"
+      "status": "Finalizado",
+      "id": 1
     },
     {
-      "id": "0cd9",
-      "nome": "iuna",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
+      "nome": "Iuna",
+      "carne": "Picanha",
+      "pao": "Parmesão e Orégano",
       "opcionais": [
-        "Pepino"
+        "Bacon",
+        "Salame",
+        "Pepino",
+        "Cheddar"
       ],
-      "status": "Solicitado"
+      "status": "Em produção",
+      "id": 3
     }
   ]
 }
